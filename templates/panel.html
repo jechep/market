@@ -1,0 +1,248 @@
+{% extends "base.html" %}
+
+{% load  static %}
+
+{% block content %}
+
+<div class="off-canvas-wrapper">
+  <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+
+    <div class="off-canvas position-left reveal-for-large" id="my-info" data-off-canvas data-position="left" style="background-color: #424242;">
+      <div class="row column">
+
+
+
+        <!-- Navigation Category -->
+        <!-- <div class="mainnav__categoriy py-3">
+          <h6 class="mainnav__caption mt-0 px-3 fw-bold">Administrador</h6>
+          <ul class="mainnav__menu nav flex-column">
+
+              <li class="nav-item">
+                  <a href="dashboard.html"
+                      class="nav-link mininav-toggle {% if grupo == 'dashboard' %} active {% else %} collapse {% endif %}"><i
+                          class="pli-bar-chart-2 fs-5 me-2"></i><span
+                          class="nav-label mininav-content ms-1">Dashboard</span></a>
+              </li>
+              <li class="nav-item has-sub">
+
+                  <a href="#"
+                      class="mininav-toggle nav-link {% if grupo == 'inicio' %} active {% else %} collapse {% endif %}"><i
+                          class="demo-pli-home fs-5 me-2"></i><span
+                          class="nav-label ms-1">Inicio</span></a>
+
+                  <ul class="mininav-content nav collapse">
+                      <li class="nav-item"><a href="reportes.html"
+                              class="nav-link {% if navbar == 'reportes' %} active {% endif %}">Reportes</a>
+                      </li>
+                      <li class="nav-item"><a href="calendario.html"
+                              class="nav-link {% if navbar == 'calendario' %} active {% endif %}">Calendario</a>
+                      </li>
+                      <li class="nav-item"><a href="usuarios.html"
+                              class="nav-link {% if navbar == 'usuarios' %} active {% endif %}">Usuarios</a>
+                      </li>
+                  </ul>
+              </li>
+
+              <li class="nav-item has-sub">
+                  <a href="#"
+                      class="mininav-toggle nav-link {% if grupo == 'caja' %} active {% else %} collapse {% endif %}"><i
+                          class="demo-pli-coin fs-5 me-2"></i><span class="nav-label ms-1">Caja</span></a>
+
+                  <ul class="mininav-content nav collapse">
+                      <li class="nav-item"><a href="cajaingresos.html"
+                              class="nav-link {% if navbar == 'cajaingresos' %} active {% endif %}">Ingresos</a>
+                      </li>
+                      <li class="nav-item"><a href="cajaegresos.html"
+                              class="nav-link {% if navbar == 'cajaegresos' %} active {% endif %}">Egresos</a>
+                      </li>
+                      <li class="nav-item"><a href="cajamovimientos.html"
+                              class="nav-link {% if navbar == 'cajamovimientos' %} active {% endif %}">Movimientos</a>
+                      </li>
+
+                  </ul>
+              </li>
+
+              <li class="nav-item has-sub">
+                  <a href="#"
+                      class="mininav-toggle nav-link {% if grupo == 'compras' %} active {% else %} collapse {% endif %}"><i
+                          class="pli-full-cart fs-5 me-2"></i><span
+                          class="nav-label ms-1">Compras</span></a>
+
+                  <ul class="mininav-content nav collapse">
+                      <li class="nav-item"><a href="nuevacompra.html"
+                              class="nav-link {% if navbar == 'nuevacompra' %} active {% endif %}">Nueva
+                              Compra</a></li>
+                      <li class="nav-item"><a href="histcompra.html"
+                              class="nav-link {% if navbar == 'histcompra' %} active {% endif %}">Historial
+                              de Compras</a></li>
+                  </ul>
+              </li>
+
+              <li class="nav-item has-sub">
+                  <a href="#"
+                      class="mininav-toggle nav-link {% if grupo == 'ventas' %} active {% else %} collapse {% endif %}"><i
+                          class="pli-cash-register-2 fs-5 me-2"></i><span
+                          class="nav-label ms-1">Ventas</span></a>
+
+                  <ul class="mininav-content nav collapse">
+                      <li class="nav-item"><a href="nuevaventa.html"
+                              class="nav-link {% if navbar == 'nuevaventa' %} active {% endif %}">Nueva
+                              Venta</a></li>
+                      <li class="nav-item"><a href="histventa.html"
+                              class="nav-link {% if navbar == 'histventa' %} active {% endif %}">Historial
+                              de Ventas</a></li>
+                      <li class="nav-item"><a href="tarifario.html"
+                              class="nav-link {% if navbar == 'tarifario' %} active {% endif %}">Tarifario</a>
+                      </li>
+                  </ul>
+              </li>
+
+              <li class="nav-item has-sub">
+                  <a href="#"
+                      class="mininav-toggle nav-link nav-link {% if grupo == 'inventarios' %} active {% else %} collapse {% endif %}"><i
+                          class="demo-pli-check fs-5 me-2"></i><span
+                          class="nav-label ms-1">Inventarios</span></a>
+
+                  <ul class="mininav-content nav collapse">
+                      <li class="nav-item"><a href="inventarios.html"
+                              class="nav-link {% if navbar == 'inventarios' %} active {% endif %}">Resumen</a>
+                      </li>
+                      <li class="nav-item"><a href="inventariosin.html"
+                              class="nav-link {% if navbar == 'inventariosin' %} active {% endif %}">Ingresos</a>
+                      </li>
+                      <li class="nav-item"><a href="inventariosout.html"
+                              class="nav-link {% if navbar == 'inventariosout' %} active {% endif %}">Salidas</a>
+                      </li>
+                  </ul>
+              </li>
+
+              <li class="nav-item has-sub">
+                  <a href="#"
+                      class="mininav-toggle nav-link nav-link {% if grupo == 'corporativo' %} active {% else %} collapse {% endif %}"><i
+                          class="demo-pli-internet fs-5 me-2"></i><span
+                          class="nav-label ms-1">Corporativo</span></a>
+
+                  <ul class="mininav-content nav collapse">
+                      <li class="nav-item"><a href="servatendidos.html"
+                              class="nav-link {% if navbar == 'servatendidos' %} active {% endif %}">Servicios
+                              Atendidos</a></li>
+                      <li class="nav-item"><a href="valorizacion.html"
+                              class="nav-link {% if navbar == 'valorizacion' %} active {% endif %}">Valorizaci&oacute;n</a>
+                      </li>
+                      <li class="nav-item"><a href="clientescorp.html"
+                              class="nav-link {% if navbar == 'clientescorp' %} active {% endif %}">Clientes</a>
+                      </li>
+                  </ul>
+              </li>
+
+              <li class="nav-item has-sub">
+
+                  <a href="#"
+                      class="mininav-toggle nav-link nav-link {% if grupo == 'configuracion' %} active {% else %} collapse {% endif %}"><i
+                          class="demo-pli-gear fs-5 me-2"></i><span
+                          class="nav-label ms-1">Configuraci&oacute;n</span></a>
+                  <ul class="mininav-content nav collapse">
+                      <li class="nav-item">
+                        <a href="facturador.html" class="nav-link {% if navbar == 'facturador' %} active {% endif %}">Facturador</a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="mantcategorias.html" class="nav-link {% if navbar == 'mantcategorias' %} active {% endif %}"> Mantenimiento de Insumos</a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="mantareas.html" class="nav-link {% if navbar == 'mantareas' %} active {% endif %}">Mantenimiento de &Aacute;reas</a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="mantunimedida.html" class="nav-link {% if navbar == 'mantunimedida' %} active {% endif %}">Mantenimiento de Unidad de Medida</a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="manttipopago.html" class="nav-link {% if navbar == 'manttipopago' %} active {% endif %}">Mantenimiento de Tipo de Pago</a>
+                      </li>
+                  </ul>
+              </li>
+          </ul>
+        </div> -->
+
+        <!-- END : Navigation Category -->
+
+
+
+        <h3 style="text-align: center; padding: 0.3em; color: #ffae00;">BLACK COFFEE</h3>
+        <ul class="vertical menu">
+            <li>
+              <a href="#"><span class="label warning">Almacen</span></a>
+              <ul class="nested vertical menu">
+                <li class="{% if request.resolver_match.url_name == 'producto_list' %}activeli{% endif %}">
+                  <a href="{% url 'producto_app:producto_list' %}" style="color: white;">Productos</a>
+                </li>
+                <li class="{% if request.resolver_match.url_name == 'producto_filtros' %}activeli{% endif %}">
+                  <a href="{% url 'producto_app:producto_filtros' %}" style="color: white;">Reportes</a>
+                </li>
+              </ul>
+            </li>
+        </ul>
+        <ul class="vertical menu">
+            <li>
+              <a href="#"><span class="label warning">Ventas</span></a>
+              <ul class="nested vertical menu">
+                <li class="{% if request.resolver_match.url_name == 'venta-index' %}activeli{% endif %}">
+                  <a href="{% url 'venta_app:venta-index' %}" style="color: white;">Vender</a>
+                </li>
+                <li class="{% if request.resolver_match.url_name == 'caja-index' %}activeli{% endif %}">
+                  <a href="{% url 'caja_app:caja-index' %}" style="color: white;">Cerrar Caja</a>
+                </li>
+              </ul>
+            </li>
+        </ul>
+        <ul class="vertical menu">
+            <li>
+              <a href="#"><span class="label warning">Compras</span></a>
+              <ul class="nested vertical menu">
+                <li class="{% if request.resolver_match.url_name == 'caja-index' %}activeli{% endif %}"></li>
+                  <a href="{% url 'compra_app:compra-index' %}" style="color: white;">Nueva Compra</a>
+                </li>
+                <li class="{% if request.resolver_match.url_name == 'venta-index' %}activeli{% endif %}">
+                  <a href="{% url 'compra_app:compra-list' %}" style="color: white;">Lista de Compras</a>
+                </li>
+              </ul>
+            </li>
+        </ul>
+        <ul class="vertical menu">
+            <li>
+              <a href="#"><span class="label warning">Administracion</span></a>
+              <ul class="nested vertical menu">
+                <li class="{% if request.resolver_match.url_name == 'index-admin' %}activeli{% endif %}">
+                  <a href="{% url 'home_app:index-admin' %}" style="color: white;">Administracion</a>
+                </li>
+                <li class="{% if request.resolver_match.url_name == 'user-lista' %}activeli{% endif %}">
+                  <a href="{% url 'users_app:user-lista' %}" style="color: white;">Usuarios</a>
+                </li>
+                <li class="{% if request.resolver_match.url_name == 'admin-reporte' %}activeli{% endif %}">
+                  <a href="{% url 'home_app:admin-reporte' %}" style="color: white;">Reportes</a>
+                </li>
+              </ul>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="off-canvas-content" data-off-canvas-content>
+      <!-- declaramos un nuevo bloque para contenidod e panel -->
+      <div class="grid-x">
+        <div class="cell top-bar" style="background-color: #424242;">
+          <div class="top-bar-left">
+            <h4 style="color: white;">Sesion de: {{ user.full_name }}</h4>
+          </div>
+          <div class="top-bar-right">
+            <a href="{% url 'users_app:user-logout' %}">
+              <span class="label warning">Salir</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="grid-container" style="padding: 1em;">
+        {% block panel-content %}
+        {% endblock panel-content %}
+      </div>
+  </div>
+</div>
+{% endblock content %}

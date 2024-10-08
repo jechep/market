@@ -1,0 +1,136 @@
+{% extends "producto/base_producto.html" %}
+{% load  static %}
+{% block panel-content %}
+
+<div class="grid-x grid-margin-x align-center">
+  <h3 class="cell" style="margin-bottom: 1em; text-align: center;">Datos de Producto</h3>  
+  <form class="cell medium-9 grid-x grid-margin-x" method="POST" action="{% url 'producto_app:producto_add' %}">
+    {% csrf_token %}
+      
+    <div class="cell medium-6">
+      <label for="id_barcode">Codigo de barras:</label>
+      <div class="input-group">
+        <span class="input-group-label"><i class="fi-align-justify"></i></span>
+        {{ form.barcode }}
+      </div>
+      {% for error in form.barcode.errors %}
+        <p class="cell" style="color: red;">
+          {{ error|escape }}
+        </p>
+      {% endfor %}
+    </div>
+    <div class="cell medium-6">
+      <label for="id_name">Nombre:</label>
+      <div class="input-group">
+        <span class="input-group-label"><i class="fi-book"></i></span>
+        {{form.name}}
+      </div>
+    </div>
+
+    <div class="cell medium-6">
+      <label for="id_category">Categoría:</label>
+      <div class="input-group">
+        {{form.category}}
+      </div>
+    </div>
+    <div class="cell medium-6">
+      <label for="id_subcategory">Sub Categoría:</label>
+      <div class="input-group">
+        {{form.subcategory}}
+      </div>
+    </div>
+    <!-- <div class="cell medium-6">
+      <label>Proveedor:</label>
+      <div class="input-group">
+        {{form.provider}}
+      </div>
+    </div> -->
+    <div class="cell medium-6">
+      <label for="id_marca">Marca:</label>
+      <div class="input-group">
+        {{form.marca}}
+      </div>
+    </div>
+
+    <div class="cell medium-6">
+        <label for="id_unit">Unidad de Medida:</label>
+        <div class="input-group">
+          {{ form.unit }}
+        </div>
+      </div>
+    <div class="cell medium-6">
+      <label for="id_due_date">Fecha de Vencimiento:</label>
+      <div class="input-group">
+        <span class="input-group-label"><i class="fi-calendar"></i></span>
+        {{ form.due_date }}
+      </div>
+    </div>
+
+    <!-- <div class="cell medium-6">
+        <label for="id_provider">Proveedor:</label>
+        <div class="input-group">
+          <span class="input-group-label"><i class="fi-dollar"></i></span>
+          {{form.provider}}
+        </div>
+    </div> -->
+    <div class="cell medium-6">
+        <label for="id_purchase_price">Precio Compra:</label>
+        <div class="input-group">
+          <span class="input-group-label"><i class="fi-dollar"></i></span>
+          {{form.purchase_price}}
+        </div>
+        {% for error in form.purchase_price.errors %}
+          <p class="cell" style="color: red;">
+            {{ error|escape }}
+          </p>
+        {% endfor %}
+    </div>
+    <div class="cell medium-6">
+        <label for="id_sale_price">Precio Venta:</label>
+        <div class="input-group">
+          <span class="input-group-label"><i class="fi-dollar"></i></span>
+          {{form.sale_price}}
+        </div>
+        {% for error in form.sale_price.errors %}
+          <p class="cell" style="color: red;">
+            {{ error|escape }}
+          </p>
+        {% endfor %}
+    </div>
+
+    <div class="cell medium-12">
+      <label for="id_count">Cantidad en Almacen:</label>
+      <div class="input-group">
+        <span class="input-group-label"><i class="fi-list-number"></i></span>
+        {{form.count}}
+      </div>
+    </div>
+
+    <div class="cell medium-12">
+        <label for="id_description">Descripcion del producto:</label>
+        <div class="input-group">
+          {{form.description}}
+        </div>
+      </div>
+    
+
+    <div class="cell medium-6">
+      <button type="submit" class="success button" style="width: 200px;">GUARDAR</button>
+      {% if form.errors %}
+        <div class="errors">
+            <p>Errores en el formulario:</p>
+            <ul>
+                {% for field, errors in form.errors.items %}
+                    <li>{{ field }}: {{ errors }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+      {% if product %}
+      <a href="{% url 'producto_app:producto_delete' product.id %}" class="alert button clear">ELIMINAR</a>
+      {% endif %}
+    </div>
+  </form>
+</div>
+
+{% endblock panel-content %}

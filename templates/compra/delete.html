@@ -1,0 +1,35 @@
+{% extends "compra/base_compra.html" %}
+
+{% load  static %}
+
+{% block panel-content %}
+
+<div class="grid-x grid-margin-x align-center">
+  <h5 class="cell" style="margin-bottom: 1em; text-align: center;">¿Desea eliminar esta Compra?</h5>  
+  <form class="cell medium-9 grid-x grid-margin-x align-center" 
+    action="{% url 'compra_app:compra-delete' purchase.id %}" method="POST">
+    {% csrf_token %}
+    
+    <div class="cell medium-7">
+        <div class="card cell">
+            <div class="card-divider">
+              <h3>Monto: S/ {{ purchase.total }}</h3>
+            </div>
+            <div class="card-section">
+              <h4>ID: {{ purchase.id }}</h4>
+              <p>FECHA: {{ purchase.fecha_compra }}</p>
+              <p>CANTIDAD PRODUCTOS: {{ purchase.cantidad }}</p>
+              <p>TIPO DE COMPROBANTE: {{ purchase.get_tipo_comprobante_display }}</p>
+              <p>TIPO DE PAGO: {{ purchase.get_medio_pago_display }}</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="cell medium-6">
+      <button type="submit" class="alert button">Anular</button>
+      <a href="{% url 'compra_app:compra-index' %}" class="primary button clear">Cancelar</a>
+    </div>
+  </form>
+</div>
+
+{% endblock panel-content %}

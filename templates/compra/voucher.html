@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Market El Dorado S.A</h3>
+    <table>
+        <tr>
+            <td>N°</td><td>{{compra.id}}</td>
+            <td>Fecha:</td><td>{{compra.date_purchase}}</td>
+        </tr>
+        <tr>
+            <td>Cantidad de Productos:</td><td>{{compra.count}}</td>
+            <td>Monto Pagado:</td><td>{{compra.amount}}</td>
+        </tr>
+        <tr>
+            <td>Tipo de Pago:</td><td>{{compra.get_type_invoce_display}}</td>
+        </tr>
+    </table>
+
+    <h4>Poductos comprados:</h4>
+    <ul>
+        {% for producto in detalle_productos %}
+          <li>{{ producto.product.name }} --- {{ producto.count }} --- {{ producto.price_purchase}}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

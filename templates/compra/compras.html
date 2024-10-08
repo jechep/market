@@ -1,0 +1,33 @@
+{% extends "compra/base_compra.html" %}
+{% load  static %}
+{% block panel-content %}
+<div class="grid-x grid-margin-x">
+    <h3 class="cell" style="text-align: center;">Ultimas Compras Registradas</h3>
+    <div class="cell">
+        <table>
+            <thead>
+                <th>Número</th>
+                <th>Fecha</th>
+                <th>Cantidad Productos</th>
+                <th>Monto Total</th>
+                <th>Fecha Reg.</th>
+                <th>Anular</th>
+            </thead>
+            <tbody>
+                {% for compra in compras %}
+                <tr>
+                  <td>{{compra.id}}</td>
+                  <td>{{compra.fecha_compra}}</td>
+                  <td>{{compra.cantidad}}</td>
+                  <td>{{compra.total}}</td>
+                  <td>{{compra.created}}</td>
+                  <td>
+                    <a href="{% url 'compra_app:compra-delete' compra.id %}" class="button alert"><i class="fi-x"></i></a>
+                  </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock panel-content %}
